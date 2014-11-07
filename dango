@@ -1,0 +1,128 @@
+function dango();
+%fs
+f =16000;
+
+%time
+t00=[0:1/f:1.225];
+t01=[0:1/f:1.05];
+t02=[0:1/f:1.575];
+t03=[0:1/f:0.875];
+t04=[0:1/f:2.625];
+t05=[0:1/f:0.525];
+t06=[0:1/f:2.1];
+t1=[0:1/f:1.4];
+t2=[0:1/f:0.7];
+t4=[0:1/f:0.35];
+t8=[0:1/f:0.175];
+
+%notes' frequency
+m_do=523;
+m_sdo=554;
+m_re=587;
+m_sre=622;
+m_mi=659;
+m_fa=698;
+m_sfa=740;
+m_so=784;
+m_sso=831;
+m_la=880;
+m_sla=932;
+m_si=988;
+h_do=1046;
+h_sdo=1109;
+h_re=1175;
+h_sre=1245;
+h_mi=1318;
+h_fa=1397;
+h_sfa=1480;
+h_so=1568;
+h_sso=1661;
+h_la=1760;
+h_sla=1865;
+h_si=1967;
+
+%sin function and envelope function
+m02=sin(2*pi*0*t2).*sin(pi*t2/0.7);
+m04=sin(2*pi*0*t4).*sin(pi*t4/0.35);
+mmi_8=sin(2*pi*m_mi*t8).*sin(pi*t8/0.175);
+msfa_4=sin(2*pi*m_sfa*t4).*sin(pi*t4/0.35);
+msfa_8=sin(2*pi*m_sfa*t8).*sin(pi*t8/0.175);
+msi_2=sin(2*pi*m_si*t2).*sin(pi*t2/0.7);
+msi_4=sin(2*pi*m_si*t4).*sin(pi*t4/0.35);
+msi_8=sin(2*pi*m_si*t8).*sin(pi*t8/0.175);
+mla_8=sin(2*pi*m_la*t8).*sin(pi*t8/0.175);
+mla_4=sin(2*pi*m_la*t4).*sin(pi*t4/0.35);
+mla_01=sin(2*pi*m_la*t01).*sin(pi*t01/1.05);
+hsdo_2=sin(2*pi*h_sdo*t2).*sin(pi*t2/0.7);
+hsdo_4=sin(2*pi*h_sdo*t4).*sin(pi*t4/0.35);
+hsdo_8=sin(2*pi*h_sdo*t8).*sin(pi*t8/0.175);
+hre_00=sin(2*pi*h_re*t00).*sin(pi*t00/1.225);
+hre_01=sin(2*pi*h_re*t01).*sin(pi*t01/1.05);
+hre_02=sin(2*pi*h_re*t02).*sin(pi*t02/1.575);
+hre_04=sin(2*pi*h_re*t04).*sin(pi*t04/2.625);
+hre_05=sin(2*pi*h_re*t05).*sin(pi*t05/0.525);
+hre_06=sin(2*pi*h_re*t06).*sin(pi*t06/2.1);
+hre_8=sin(2*pi*h_re*t8).*sin(pi*t8/0.175);
+hre_4=sin(2*pi*h_re*t4).*sin(pi*t4/0.35);
+hre_2=sin(2*pi*h_re*t2).*sin(pi*t2/0.7);
+hre_1=sin(2*pi*h_re*t1).*sin(pi*t1/1.4);
+hsre_4=sin(2*pi*h_sre*t4).*sin(pi*t4/0.35);
+hsre_8=sin(2*pi*h_sre*t8).*sin(pi*t8/0.175);
+hmi_01=sin(2*pi*h_mi*t01).*sin(pi*t01/1.05);
+hmi_03=sin(2*pi*h_mi*t03).*sin(pi*t03/0.875);
+hmi_8=sin(2*pi*h_mi*t8).*sin(pi*t8/0.175);
+hmi_4=sin(2*pi*h_mi*t4).*sin(pi*t4/0.35);
+hmi_2=sin(2*pi*h_mi*t2).*sin(pi*t2/0.7); 
+hsfa_01=sin(2*pi*h_sfa*t01).*sin(pi*t01/1.05); 
+hsfa_02=sin(2*pi*h_sfa*t02).*sin(pi*t02/1.575); 
+hsfa_2=sin(2*pi*h_sfa*t2).*sin(pi*t2/0.7); 
+hsfa_8=sin(2*pi*h_sfa*t8).*sin(pi*t8/0.175); 
+hsfa_4=sin(2*pi*h_sfa*t4).*sin(pi*t4/0.35);
+hso_2=sin(2*pi*h_so*t2).*sin(pi*t2/0.7); 
+hso_4=sin(2*pi*h_so*t4).*sin(pi*t4/0.35); 
+hso_8=sin(2*pi*h_so*t8).*sin(pi*t8/0.175);
+hsso_2=sin(2*pi*h_sso*t2).*sin(pi*t2/0.7);
+hsso_4=sin(2*pi*h_sso*t4).*sin(pi*t4/0.35);
+hsso_8=sin(2*pi*h_sso*t8).*sin(pi*t8/0.175);
+hla_8=sin(2*pi*h_la*t8).*sin(pi*t8/0.175); 
+hsi_8=sin(2*pi*h_si*t8).*sin(pi*t8/0.175); 
+
+
+
+%score
+m=[msi_8 mla_8 hre_4 hre_4 hmi_4 hmi_4 hsfa_4 hre_4 mla_4 msi_8 mla_8 hre_4 hre_4 hmi_4 hmi_4 hsfa_4 hre_2 ...
+    msi_8 mla_8 hre_4 hre_4 hmi_4 hmi_4 hsfa_4 hre_4 mla_4  msi_8 mla_8 hre_4 hre_4 hmi_4 hre_1...
+    m02 hre_8 hsdo_8 mla_8 msfa_8 msi_8 mla_8 hre_4 hre_4 hmi_4 hmi_4 hsfa_4 hre_4 hsdo_4 msi_2 hsdo_4...
+    hre_8 hsdo_4 hre_00...
+    mla_01 hsdo_8 hre_02 mla_01 hre_4 hmi_2 hmi_8 hsfa_8 hso_4 hsfa_2 hmi_4 hre_8 hmi_03 hre_4 hsdo_8 hre_04 m04...
+    mla_01 hsdo_8 hre_02 mla_01 hre_4 hmi_2 hmi_8 hsfa_8 hso_4 hsfa_2 hmi_4 hre_8 hmi_03 hso_4 hsfa_8 hre_04 m04...
+    hso_2 hre_4 hmi_8 hsfa_02 hso_2 hre_4 hmi_8 hsfa_8 hsfa_01 hmi_8 hre_8 msi_4 hsdo_4 hre_4 hre_4...
+    mla_4 mla_4 hre_05 hre_8 hso_8 hsfa_4 hmi_4 hre_8 hmi_01 mla_8 hsdo_8 hre_8 hmi_8...
+    mmi_8 mla_8 hre_8 hmi_8 hmi_4 hre_8 msi_4 hre_8 hmi_8 hsfa_8 hla_8 hmi_8 hsfa_4 hre_8 mla_8 hre_8 hmi_8...
+    hmi_4 hre_8 msi_4 hmi_8 hre_8 hla_8 hsfa_2 mmi_8 mla_8 hre_8 hmi_8 hmi_4 hre_8 msi_4 hre_8 hmi_8 hsfa_8...
+    hla_8 hmi_8 hsfa_4 hre_4 hsdo_4 msi_2 hsdo_4 hre_8 hsdo_4 hre_00 m02...
+    msfa_8 msi_8 hmi_8 hsfa_8 hsfa_4 hmi_8 hsdo_4 hmi_8 hsfa_8 hsso_8 hsi_8 hsfa_8 hsso_4...
+    hmi_8 msi_8 hmi_8 hsfa_8 hsfa_4 hmi_8 hsdo_4 hsfa_8 hmi_8 hsi_8 hsso_2...
+    msfa_8 msi_8 hmi_8 hsfa_8 hsfa_4 hmi_8 hsdo_4 hmi_8 hsfa_8 hsso_8 hsi_8 hsfa_8 hsso_4...
+    hmi_4 hsre_4 hsdo_2 hsre_4 hmi_8 hsre_8 hmi_2...
+    msfa_8 msi_8 hmi_8 hsfa_8 hsfa_4 hmi_8 hsdo_4 hmi_8 hsfa_8 hsso_8 hsi_8 hsfa_8 hsso_4...
+    hmi_8 msi_8 hmi_8 hsfa_8 hsfa_4 hmi_8 hsdo_4 hsfa_8 hmi_8 hsi_8 hsso_2...
+    msfa_8 msi_8 hmi_8 hsfa_8 hsfa_4 hmi_8 hsdo_4 hmi_8 hsfa_8 hsso_8 hsi_8 hsfa_8 hsso_4...
+    hmi_4 hsre_4 hsdo_2 hsre_4 hmi_8 hsre_4 hmi_2]  ;    
+
+% this function i use in fact is useless 
+y=smooth(m,'loess');
+
+%this function is another envelope function i found through net but i don't know the meaning of the parameters
+%for i=1:16000
+%     y(i)=amendment(m(i), 1);%zhe ge difang ni keneng xuyao tiaozheng xia canshu 1
+%     i
+%l=m(i)/6;
+%if  l<0.7
+%y(i)=l*exp(-7*l);
+%else
+%y(i)=0.7/0.3*exp(-4.9)*(1-l);
+%end
+%end
+
+sound(y);
